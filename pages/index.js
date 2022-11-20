@@ -3,7 +3,7 @@ import styles from "../styles/Home.module.css";
 import Web3Modal from "web3modal";
 import { providers, Contract } from "ethers";
 import { useEffect, useRef, useState } from "react";
-import { WHITELIST_CONTRACT_ADDRESS, abi } from "../constants";
+import { WHITELIST_CONTRACT_ADDRESS, WHITELIST_CONTRACT_ADDRESS_ABI } from "../constants";
 
 export default function Home() {
   // walletConnected keep track of whether the user's wallet is connected or not
@@ -60,7 +60,7 @@ export default function Home() {
       // update methods
       const whitelistContract = new Contract(
         WHITELIST_CONTRACT_ADDRESS,
-        abi,
+        WHITELIST_CONTRACT_ADDRESS_ABI,
         signer
       );
       // call the addAddressToWhitelist from the contract
@@ -89,7 +89,7 @@ export default function Home() {
       // have read-only access to the Contract
       const whitelistContract = new Contract(
         WHITELIST_CONTRACT_ADDRESS,
-        abi,
+        WHITELIST_CONTRACT_ADDRESS_ABI,
         provider
       );
       // call the numAddressesWhitelisted from the contract
@@ -112,7 +112,7 @@ export default function Home() {
       const signer = await getProviderOrSigner(true);
       const whitelistContract = new Contract(
         WHITELIST_CONTRACT_ADDRESS,
-        abi,
+        WHITELIST_CONTRACT_ADDRESS_ABI,
         signer
       );
       // Get the address associated to the signer which is connected to  MetaMask
