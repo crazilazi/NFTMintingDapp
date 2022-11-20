@@ -5,6 +5,7 @@
 // will compile your contracts, add the Hardhat Runtime Environment's members to the
 // global scope, and execute the script.
 const { ethers } = require("hardhat");
+require("dotenv").config({ path: ".env" });
 
 async function main() {
   /*
@@ -22,6 +23,28 @@ async function main() {
 
   // print the address of the deployed contract
   console.log("Whitelist Contract Address:", deployedWhitelistContract.address);
+
+  // Address of the whitelist contract that you deployed in the previous module
+  const whitelistContractAddress = deployedWhitelistContract.address;
+  // URL from where we can extract the metadata for a Crypto Dev NFT
+  const metadataURL = process.env.METADATA_URL;
+  /*
+  A ContractFactory in ethers.js is an abstraction used to deploy new smart contracts,
+  so cryptoDevsContract here is a factory for instances of our CryptoDevs contract.
+  */
+  const cryptoDevsContract = await ethers.getContractFactory("CryptoDevs");
+
+  // deploy the contract
+  const deployedCryptoDevsContract = await cryptoDevsContract.deploy(
+    metadataURL,
+    whitelistContractAddress
+  );
+
+  // print the address of the deployed contract
+  console.log(
+    "Crypto Devs Contract Address:",
+    deployedCryptoDevsContract.address
+  );
 }
 
 // We recommend this pattern to be able to use async/await everywhere
