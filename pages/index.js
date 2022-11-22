@@ -5,7 +5,7 @@ import { providers, Contract } from "ethers";
 import { useEffect, useRef, useState } from "react";
 import { WHITELIST_CONTRACT_ADDRESS, WHITELIST_CONTRACT_ADDRESS_ABI } from "../constants";
 
-export default function Home() {
+export default function Whitelist() {
   // walletConnected keep track of whether the user's wallet is connected or not
   const [walletConnected, setWalletConnected] = useState(false);
   // joinedWhitelist keeps track of whether the current metamask address has joined the Whitelist or not
@@ -193,7 +193,7 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>Whitelist Dapp</title>
+        <title>Crypto Devs - Whitelist</title>
         <meta name="description" content="Whitelist-Dapp" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -204,7 +204,7 @@ export default function Home() {
             Its an NFT collection for developers in Crypto.
           </div>
           <div className={styles.description}>
-            {numberOfWhitelisted} have already joined the Whitelist
+            you have already joined the Whitelist
           </div>
           {renderButton()}
         </div>
