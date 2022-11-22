@@ -1,3 +1,8 @@
-# NFT minting dapp
+# Web3 dapp
 
-A dapp to whitelist and mint nft on ether blockchain
+A dapp to
+1. Whitelist
+2. Minting
+3. ICO
+
+on ether blockchain
