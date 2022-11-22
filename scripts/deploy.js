@@ -37,13 +37,33 @@ async function main() {
   // deploy the contract
   const deployedCryptoDevsContract = await cryptoDevsContract.deploy(
     metadataURL,
-    whitelistContractAddress
+    whitelistContractAddress, "Crypto Devs", "CD"
   );
 
   // print the address of the deployed contract
   console.log(
     "Crypto Devs Contract Address:",
     deployedCryptoDevsContract.address
+  );
+
+  /*
+    A ContractFactory in ethers.js is an abstraction used to deploy new smart contracts,
+    so cryptoDevsTokenContract here is a factory for instances of our CryptoDevToken contract.
+    */
+  const cryptoDevsTokenContract = await ethers.getContractFactory(
+    "CryptoDevToken"
+  );
+
+  // deploy the contract
+  const deployedCryptoDevsTokenContract = await cryptoDevsTokenContract.deploy(
+    deployedCryptoDevsContract.address, "Crypto Dev Token", "CD"
+  );
+
+  await deployedCryptoDevsTokenContract.deployed();
+  // print the address of the deployed contract
+  console.log(
+    "Crypto Devs Token Contract Address:",
+    deployedCryptoDevsTokenContract.address
   );
 }
 

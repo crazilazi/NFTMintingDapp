@@ -5,7 +5,7 @@ import Web3Modal from "web3modal";
 import { NFT_CONTRACT_ADDRESS_ABI, NFT_CONTRACT_ADDRESS } from "../constants";
 import styles from "../styles/mint.module.css";
 
-export default function Home() {
+export default function Mint() {
     // walletConnected keep track of whether the user's wallet is connected or not
     const [walletConnected, setWalletConnected] = useState(false);
     // presaleStarted keeps track of whether the presale has started or not
@@ -348,8 +348,8 @@ export default function Home() {
     return (
         <div>
             <Head>
-                <title>Crypto Devs</title>
-                <meta name="description" content="Whitelist-Dapp" />
+                <title>Crypto Devs - Mint</title>
+                <meta name="description" content="Mint-NFT" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <div className={styles.main}>
