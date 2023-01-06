@@ -12,10 +12,10 @@ contract CryptoDevToken is ERC20, Ownable {
     // is actually equal to (10 ^ -18) tokens.
     // Owning 1 full token is equivalent to owning (10^18) tokens when you account for the decimal places.
     // More information on this can be found in the Freshman Track Cryptocurrency tutorial.
-    uint256 public constant tokensPerNFT = 10 * 10**18;
+    uint256 public constant tokensPerNFT = 10 * 10 ** 18;
 
     // the max total supply is 10000 for Crypto Dev Tokens
-    uint256 public constant maxTotalSupply = 10000 * 10**18;
+    uint256 public constant maxTotalSupply = 10000 * 10 ** 18;
 
     // CryptoDevsNFT contract instance
     ICryptoDevs cryptoDevsNFTContract;
@@ -63,7 +63,7 @@ contract CryptoDevToken is ERC20, Ownable {
             "The required amount of ether is not sent."
         );
         // total tokens + amount <= 10000, otherwise revert the transaction
-        uint256 amountWithDecimals = noOfToken_ * 10**18;
+        uint256 amountWithDecimals = noOfToken_ * 10 ** 18;
         require(
             (totalSupply() + amountWithDecimals) <= maxTotalSupply,
             "Exceeds the max total supply available."
